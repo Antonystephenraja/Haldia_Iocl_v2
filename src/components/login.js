@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://iocl.xyma.live/backend/login', {
+      const response = await fetch('https://iocl.xyma.live/backend/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

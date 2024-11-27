@@ -85,7 +85,7 @@ const PopupComponent = ({ onClose }) => {
     const fromDates = new Date(selectedFromDate);
     const toDates = new Date(selectedToDate);
     try{
-      const response = await fetch('http://iocl.xyma.live/backend/Report_data', {
+      const response = await fetch('https://iocl.xyma.live/backend/Report_data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -220,14 +220,14 @@ const Demo = ({Device_Limit,Alldata}) => {
       localStorage.setItem('limit', selectedOption.value);
 
       // Send a POST request to your backend with the selected value
-      // await axios.post('http://iocl.xyma.live/backend/saveData', { inputValue: selectedOption.value });
+      // await axios.post('https://iocl.xyma.live/backend/saveData', { inputValue: selectedOption.value });
       // console.log('Data saved successfully on the backend');
 };
 
 
   const fetchData = async()=>{
     try{
-      const datas = await fetch('http://iocl.xyma.live/backend/Limits_Data');
+      const datas = await fetch('https://iocl.xyma.live/backend/Limits_Data');
       const Limit_Data = await datas.json()
       setLimitData(Limit_Data)
     }catch(error){
@@ -248,7 +248,7 @@ const Demo = ({Device_Limit,Alldata}) => {
     event.preventDefault();
     const inputValue = inputRef.current.value;
       try {
-        await axios.post('http://iocl.xyma.live/backend/saveData', { inputValue });
+        await axios.post('https://iocl.xyma.live/backend/saveData', { inputValue });
         console.log('Data saved successfully');
         inputRef.current.value = '';
       } catch (error) {
