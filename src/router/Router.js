@@ -28,7 +28,7 @@ const Router = () => {
   const fetch_device_limit = async()=>{
     try{
      
-      const datas = await fetch('http://localhost:4000/backend/Limits_Data');
+      const datas = await fetch('http://iocl.xyma.live/backend/Limits_Data');
       const Limit_Data = await datas.json()
       setLimitData(Limit_Data)
     }catch(error){
@@ -40,7 +40,7 @@ const Router = () => {
   const fetch_device_datas = async()=>{
     try{
       const limitvalue =parseInt(localStorage.getItem('limit'))||0;
-      const datass = await fetch(`http://localhost:4000/backend/FindData?inputValue=${limitvalue}`);
+      const datass = await fetch(`http://iocl.xyma.live/backend/FindData?inputValue=${limitvalue}`);
       const Limit_Data = await datass.json()
       console.log("chart data =",Limit_Data)
      setReportData(Limit_Data)
