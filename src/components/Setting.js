@@ -7,21 +7,21 @@ const Setting = () => {
         <h1 className="text-2xl text-center font-bold mb-4">XYMA Analytics Private Ltd</h1>
         <div className="mb-4">
           <h2 className="text-lg text-center font-semibold mb-2">Info</h2>
-          <p className=''>Company Name: Your Company</p>
-          <p>Location: City, Country</p>
+          <p className=''>Company Name: XYMA ANALYTICS PVT LTD</p>
+          <p>Location: Chennai, India</p>
           {/* Add more company details as needed */}
         </div>
 
         <div className="mb-4">
           <h2 className="text-lg font-semibold mb-2">Project Details</h2>
-          <p>©2023 XYMA Analytics Private Ltd,IIT Mad</p>
-          <p>Description: Brief description of the project.</p>
+          <p>©2023 XYMA Analytics Private Ltd,IIT Madras</p>
+          <p>Description: µTMapS & µSTMapS are IIoT-enabled temperature measurement and temperature profiling sensors that captures continuous measurements at multiple points</p>
           {/* Add more project details as needed */}
         </div>
 
         <div className="mb-4">
-          <h2 className="text-lg font-semibold mb-2">Additional Information</h2>
-          <p>This is a static dashboard settings page created using React and Tailwind CSS.</p>
+          <h2 className="text-lg font-semibold mb-2">More Information</h2>
+          <p>Email: info@xyma.in</p>
         </div>
       </div>
     </div>
