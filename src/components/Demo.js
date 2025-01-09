@@ -228,9 +228,11 @@ const Demo = ({ Device_Limit, Alldata }) => {
   }, []);
 
   const dropdown_datas = [
-    { label: "300 Datas", value: "300" },
-    { label: "500 Datas", value: "500" },
-    { label: "1000 Datas", value: "1000" },
+    { label: "Last 1hr Data", value: "1hr" },
+    { label: "Last 12hr Data", value: "12hr" },
+    { label: "Last 24hr Data", value: "24hr" },
+    { label: "Last 7 Days Data", value: "7d" },
+    { label: "Last 30 Days Data", value: "30d" },
   ];
 
   const handleDaysDropdown = async (selectedOption) => {
@@ -409,7 +411,7 @@ const Demo = ({ Device_Limit, Alldata }) => {
         </h1>
         <div className="h-[10%] flex flex-col md:flex-row md:items-center justify-between bg-dark_color rounded-lg p-4 md:ml-5 md:mr-5">
           <h1 className="text-[10px] md:text-[15px] text-white mb-4 md:mb-0 md:mr-4 md:justify-self-start">
-            REFORMER TUBE: 04
+            REFORMER TUBE: 43
           </h1>
           <div className="flex items-center">
             {" "}
@@ -477,7 +479,7 @@ const Demo = ({ Device_Limit, Alldata }) => {
           </h1>
           <Select
             options={dropdown_datas}
-            className="text-black"
+            className="text-black text-left w-52"
             isSearchable={true}
             onChange={handleDaysDropdown}
           />

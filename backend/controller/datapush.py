@@ -21,7 +21,9 @@ def generate_data():
     days_in_month = (start_of_month.replace(month=today.month % 12 + 1, day=1) - timedelta(days=1)).day
     random_day = random.randint(1, days_in_month)
     random_date = start_of_month.replace(day=random_day)
-    time = random_date.strftime("%Y-%m-%d %H:%M:%S")
+    # time = random_date.strftime("%Y-%m-%d %H:%M:%S")
+
+    time = today.strftime("%Y-%m-%d %H:%M:%S")
 
     return {
         "R_N": R_N,
@@ -49,7 +51,7 @@ def send_data():
 def continuous_push(interval=5):
     while True:
         send_data()
-        time.sleep(0.3)  # Delay between pushes (in seconds)
+        time.sleep(10)  # Delay between pushes (in seconds)
 
 # Start pushing data continuously
 if __name__ == "__main__":
