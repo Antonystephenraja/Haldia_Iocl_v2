@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* activity status blink */
+@keyframes blink {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: gray;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.status-indicator {
+  animation: blink 1s infinite;
+  background-color: inherit;
+}

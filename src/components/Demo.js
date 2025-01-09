@@ -7,6 +7,8 @@ import { CSSTransition } from "react-transition-group";
 import * as XLSX from "xlsx";
 import report from "../images/report-bg.png";
 import { Line } from "react-chartjs-2";
+import { IoMdWarning } from "react-icons/io";
+import { BsDatabaseFillCheck } from "react-icons/bs";
 
 import {
   Chart as ChartJS,
@@ -213,11 +215,13 @@ const PopupComponent = ({ onClose }) => {
   );
 };
 
-const Demo = ({ Device_Limit, Alldata }) => {
+const Demo = ({ Device_Limit, Alldata, activityStatus }) => {
   const inputRef = useRef(null);
   const [isPopupVisible, setPopupVisibility] = useState(false);
   const [color_Limit, setLimitData] = useState([]);
   const onedata = Alldata ? Alldata[0] : [];
+
+  // console.log("activity status from demo:", activityStatus);
 
   useEffect(() => {
     fetchData();
@@ -414,7 +418,20 @@ const Demo = ({ Device_Limit, Alldata }) => {
             REFORMER TUBE: 43
           </h1>
           <div className="flex items-center">
-            {" "}
+            {Array.isArray(Alldata) && Alldata.length > 0 && (
+              <div className="text-white mr-2 text-xs border border-white rounded h-10 flex flex-col items-center w-60 gap-0.5">
+                Last Data: <div>{Alldata[0].time}</div>
+              </div>
+            )}
+            {activityStatus === "active" ? (
+              <button className=" bg-green-500 mr-2 px-2 h-10 rounded font-bold text-white flex gap-1 items-center">
+                <BsDatabaseFillCheck className="text-xl mb-0.5" /> Active
+              </button>
+            ) : (
+              <button className=" status-indicator mr-2 px-2 h-10 rounded font-bold text-white flex gap-1 items-center">
+                <IoMdWarning className="text-xl mb-0.5" /> Inactive
+              </button>
+            )}{" "}
             {/* Container for buttons and input */}
             <button
               className="bg-[#27B299] w-20 h-10 rounded text-white mr-2 font-bold"
@@ -438,39 +455,53 @@ const Demo = ({ Device_Limit, Alldata }) => {
         </div>
         <div className="h-[15%] grid grid-cols-1 md:grid-cols-5 gap-4 mt-4 ml-5 mr-5">
           <div className="bg-gray-200 grid grid-rows-2 md:grid-rows-2 rounded p-4">
-            <div className="flex flex-cols-2">
-              <FaTemperatureLow className="text-2xl" />
-              <h1 className="ml-5 font-bold">{onedata.sensor1}℃</h1>
+            <div className="font-bold flex justify-center items-center">
+              Sensor 1
             </div>
-            <h1 className="font-bold mt-1">Sensor1</h1>
+            <div className="flex justify-center items-center">
+              <FaTemperatureLow className="text-2xl" />
+              <h1 className="ml-3 font-bold text-4xl">{onedata.sensor1}℃</h1>
+            </div>
           </div>
+
           <div className="bg-gray-200 grid grid-rows-2 md:grid-rows-2 rounded p-4">
-            <div className="flex flex-cols-2">
-              <FaTemperatureLow className="text-2xl" />
-              <h1 className="ml-5 font-bold">{onedata.sensor2}℃</h1>
+            <div className="font-bold flex justify-center items-center">
+              Sensor 2
             </div>
-            <h1 className="font-bold mt-1">Sensor2</h1>
+            <div className="flex justify-center items-center">
+              <FaTemperatureLow className="text-2xl" />
+              <h1 className="ml-3 font-bold text-4xl">{onedata.sensor2}℃</h1>
+            </div>
           </div>
+
           <div className="bg-gray-200 grid grid-rows-2 md:grid-rows-2 rounded p-4">
-            <div className="flex flex-cols-2">
-              <FaTemperatureLow className="text-2xl" />
-              <h1 className="ml-5 font-bold">{onedata.sensor3}℃</h1>
+            <div className="font-bold flex justify-center items-center">
+              Sensor 3
             </div>
-            <h1 className="font-bold mt-1">Sensor3</h1>
+            <div className="flex justify-center items-center">
+              <FaTemperatureLow className="text-2xl" />
+              <h1 className="ml-3 font-bold text-4xl">{onedata.sensor3}℃</h1>
+            </div>
           </div>
+
           <div className="bg-gray-200 grid grid-rows-2 md:grid-rows-2 rounded p-4">
-            <div className="flex flex-cols-2">
-              <FaTemperatureLow className="text-2xl" />
-              <h1 className="ml-5 font-bold">{onedata.sensor4}℃</h1>
+            <div className="font-bold flex justify-center items-center">
+              Sensor 4
             </div>
-            <h1 className="font-bold mt-1">Sensor4</h1>
+            <div className="flex justify-center items-center">
+              <FaTemperatureLow className="text-2xl" />
+              <h1 className="ml-3 font-bold text-4xl">{onedata.sensor4}℃</h1>
+            </div>
           </div>
+
           <div className="bg-gray-200 grid grid-rows-2 md:grid-rows-2 rounded p-4">
-            <div className="flex flex-cols-2">
-              <FaTemperatureLow className="text-2xl" />
-              <h1 className="ml-5 font-bold">{onedata.sensor5}℃</h1>
+            <div className="font-bold flex justify-center items-center">
+              Sensor 5
             </div>
-            <h1 className="font-bold mt-1">Sensor5</h1>
+            <div className="flex justify-center items-center">
+              <FaTemperatureLow className="text-2xl" />
+              <h1 className="ml-3 font-bold text-4xl">{onedata.sensor5}℃</h1>
+            </div>
           </div>
         </div>
         <div className="h-[10%] flex  flex-col md:flex-row md:items-center justify-between bg-dark_color rounded-lg p-4 md:ml-5 md:mr-5">

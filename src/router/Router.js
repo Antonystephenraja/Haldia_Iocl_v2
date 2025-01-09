@@ -10,6 +10,7 @@ import Setting from "../components/Setting";
 const Router = () => {
   const [color_Limit, setLimitData] = useState([]);
   const [alldata, setReportData] = useState();
+  const [activityStatus, setActivityStatus] = useState("");
 
   useEffect(() => {
     fetch_device_limit();
@@ -37,14 +38,18 @@ const Router = () => {
   const fetch_device_datas = async () => {
     try {
       const limitvalue = localStorage.getItem("limit") || "1hr";
-      // const datass = await fetch(`https://iocl.xyma.live/backend/FindData?inputValue=${limitvalue}`);
-      // console.log("limit value", limitvalue);
       const datass = await fetch(
-        `http://localhost:4000/backend/FindData?inputValue=${limitvalue}`
+        `https://iocl.xyma.live/backend/FindData?inputValue=${limitvalue}`
       );
+      // console.log("limit value", limitvalue);
+      // const datass = await fetch(
+      //   `http://localhost:4000/backend/FindData?inputValue=${limitvalue}`
+      // );
       const Limit_Data = await datass.json();
-      console.log("chart data =", Limit_Data);
-      setReportData(Limit_Data);
+      console.log("chart data =", Limit_Data.data);
+      // console.log("activity status", Limit_Data.activityStatus);
+      setReportData(Limit_Data.data);
+      setActivityStatus(Limit_Data.activityStatus);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -60,7 +65,11 @@ const Router = () => {
               <Route
                 index
                 element={
-                  <Mainpage Device_Limit={color_Limit} Alldata={alldata} />
+                  <Mainpage
+                    Device_Limit={color_Limit}
+                    Alldata={alldata}
+                    activityStatus={activityStatus}
+                  />
                 }
               />
               <Route path="chart" element={<Chart />} />

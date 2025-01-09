@@ -133,7 +133,18 @@ export const FindData = async (req, res) => {
         },
       }).sort({ _id: -1 });
       if (data.length > 0) {
-        res.status(200).json(data);
+        const lastDataTime = data[0].time;
+        const timeDiffInMinutes =
+          (new Date(formattedCurrentTime) - new Date(lastDataTime)) /
+          (1000 * 60);
+
+        const activityStatus = timeDiffInMinutes > 5 ? "inactive" : "active";
+
+        const response = {
+          data: data,
+          activityStatus: activityStatus,
+        };
+        res.status(200).json(response);
       } else {
         res.status(404).json({ error: "No Data Found" });
       }
@@ -176,7 +187,18 @@ export const FindData = async (req, res) => {
         },
       }).sort({ _id: -1 });
       if (data.length > 0) {
-        res.status(200).json(data);
+        const lastDataTime = data[0].time;
+        const timeDiffInMinutes =
+          (new Date(formattedCurrentTime) - new Date(lastDataTime)) /
+          (1000 * 60);
+
+        const activityStatus = timeDiffInMinutes > 5 ? "inactive" : "active";
+
+        const response = {
+          data: data,
+          activityStatus: activityStatus,
+        };
+        res.status(200).json(response);
       } else {
         res.status(404).json({ error: "No Data Found" });
       }
@@ -222,7 +244,18 @@ export const FindData = async (req, res) => {
         },
       }).sort({ _id: -1 });
       if (data.length > 0) {
-        res.status(200).json(data);
+        const lastDataTime = data[0].time;
+        const timeDiffInMinutes =
+          (new Date(formattedCurrentTime) - new Date(lastDataTime)) /
+          (1000 * 60);
+
+        const activityStatus = timeDiffInMinutes > 5 ? "inactive" : "active";
+
+        const response = {
+          data: data,
+          activityStatus: activityStatus,
+        };
+        res.status(200).json(response);
       } else {
         res.status(404).json({ error: "No Data Found" });
       }
@@ -265,7 +298,18 @@ export const FindData = async (req, res) => {
         },
       }).sort({ _id: -1 });
       if (data.length > 0) {
-        res.status(200).json(data);
+        const lastDataTime = data[0].time;
+        const timeDiffInMinutes =
+          (new Date(formattedCurrentTime) - new Date(lastDataTime)) /
+          (1000 * 60);
+
+        const activityStatus = timeDiffInMinutes > 5 ? "inactive" : "active";
+
+        const response = {
+          data: data,
+          activityStatus: activityStatus,
+        };
+        res.status(200).json(response);
       } else {
         res.status(404).json({ error: "No Data Found" });
       }
@@ -308,7 +352,18 @@ export const FindData = async (req, res) => {
         },
       }).sort({ _id: -1 });
       if (data.length > 0) {
-        res.status(200).json(data);
+        const lastDataTime = data[0].time;
+        const timeDiffInMinutes =
+          (new Date(formattedCurrentTime) - new Date(lastDataTime)) /
+          (1000 * 60);
+
+        const activityStatus = timeDiffInMinutes > 5 ? "inactive" : "active";
+
+        const response = {
+          data: data,
+          activityStatus: activityStatus,
+        };
+        res.status(200).json(response);
       } else {
         res.status(404).json({ error: "No Data Found" });
       }
