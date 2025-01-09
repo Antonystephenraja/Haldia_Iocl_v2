@@ -30,7 +30,7 @@ const Sidebar = () => {
     <div
       className={`${
         open ? "w-72" : "w-20"
-      } height  bg-dark_color h-screen p-5 pt-8 relative duration-300`}
+      } bg-dark_color h-full md:h-screen p-5 pt-8 relative duration-300`}
     >
       <img
         src={control}
