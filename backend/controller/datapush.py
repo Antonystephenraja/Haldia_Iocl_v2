@@ -51,7 +51,7 @@ def send_data():
 def continuous_push(interval=5):
     while True:
         send_data()
-        time.sleep(10)  # Delay between pushes (in seconds)
+        time.sleep(1)  # Delay between pushes (in seconds)
 
 # Start pushing data continuously
 if __name__ == "__main__":

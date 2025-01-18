@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center h-screen dark:bg-gray-900">
-      <div className="bg-gray-800 m-5 rounded-t-md  p-6 md:p-10">
+      <div className="bg-gray-800 border m-5 rounded-t-md  p-6 md:p-10">
         <div className="flex justify-center">
           <img
             src={xyma}

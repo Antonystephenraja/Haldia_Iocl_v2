@@ -67,10 +67,13 @@ export const saveData = async (req, res) => {
   }
 };
 
+
+
+
 export const FindData = async (req, res) => {
   try {
     const data_stage = req.query.inputValue;
-
+    // console.log("input value=",data_stage)
     const currentDateTime = new Date();
     const kolkataTime = currentDateTime.toLocaleString("en-US", {
       timeZone: "Asia/Kolkata",
@@ -99,7 +102,9 @@ export const FindData = async (req, res) => {
     // last 1 hr data
     if (data_stage === "1hr") {
       const currentTimeMinusOneHr = new Date(
+        // currentDateTime.getTime() - 5* 60 * 1000
         currentDateTime.getTime() - 1 * 60 * 60 * 1000
+
       );
 
       const kolkataTime2 = currentTimeMinusOneHr.toLocaleString("en-US", {
